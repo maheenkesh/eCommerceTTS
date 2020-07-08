@@ -16,6 +16,18 @@ public class Product {
 	
 	private Long id;
 	private String name;
+	private Double wholesalePrice;
+	private Double retailPrice;
+	private String brand;
+	private String category;
+	private String description;
+	private Integer inventory;
+	private String image; //image attribute is a string representing the path where the image file is stored
+	private Date createdAt;
+	private Date updatedAt;
+	public Product() {
+		
+	}
 	public String getName() {
 		return name;
 	}
@@ -39,6 +51,12 @@ public class Product {
 	}
 	public void setBrand(String brand) {
 		this.brand = brand;
+	}
+	public String getCategory() {
+		return category;
+	}
+	public void setCategory(String category) {
+		this.category = category;
 	}
 	public String getDescription() {
 		return description;
@@ -73,28 +91,18 @@ public class Product {
 	public Long getId() {
 		return id;
 	}
-	private Double wholesalePrice;
-	private Double retailPrice;
-	private String brand;
-	private String description;
-	private Integer inventory;
-	private String image; //image attribute is a string representing the path where the image file is stored
-	private Date createdAt;
-	private Date updatedAt;
-	public Product(Long id, String name, Double wholesalePrice, Double retailPrice, String brand, String description,
-			Integer inventory, String image, Date createdAt, Date updatedAt) {
-		this.id = id;
+	public Product(String name, Double wholesalePrice, Double retailPrice, String brand, String category,
+			String description, Integer inventory, String image, Date createdAt, Date updatedAt) {
 		this.name = name;
 		this.wholesalePrice = wholesalePrice;
 		this.retailPrice = retailPrice;
 		this.brand = brand;
+		this.category = category;
 		this.description = description;
 		this.inventory = inventory;
 		this.image = image;
 		this.createdAt = createdAt;
 		this.updatedAt = updatedAt;
-
 	} 
-	
-
 }
+	
