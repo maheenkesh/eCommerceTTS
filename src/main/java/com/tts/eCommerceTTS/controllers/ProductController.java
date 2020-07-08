@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import com.tts.eCommerceTTS.model.Product;
+import com.tts.eCommerceTTS.services.ProductService;
 
 public class ProductController {
 

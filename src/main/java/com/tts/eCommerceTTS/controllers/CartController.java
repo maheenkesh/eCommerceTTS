@@ -1,5 +1,6 @@
 package com.tts.eCommerceTTS.controllers;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
@@ -7,9 +8,13 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.tts.eCommerceTTS.model.Product;
+import com.tts.eCommerceTTS.services.ProductService;
 
 public class CartController {
 
+	@Autowired
+	private ProductService productService;
+	
 	@GetMapping("/cart")
 	public String showCart() {
 	  return "storefront/cart";
