@@ -9,11 +9,14 @@ import org.springframework.web.bind.annotation.RequestParam;
 
 import com.tts.eCommerceTTS.model.Product;
 import com.tts.eCommerceTTS.services.ProductService;
+import com.tts.eCommerceTTS.services.UserService;
 
 public class CartController {
 
+	//these two are also questionable
 	@Autowired
 	private ProductService productService;
+	private UserService userService;
 	
 	@GetMapping("/cart")
 	public String showCart() {

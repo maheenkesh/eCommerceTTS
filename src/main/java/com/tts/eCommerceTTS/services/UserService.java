@@ -7,12 +7,14 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.stereotype.Service;
 
 import com.tts.eCommerceTTS.model.Role;
 import com.tts.eCommerceTTS.model.User;
 import com.tts.eCommerceTTS.repositories.RoleRepository;
 import com.tts.eCommerceTTS.repositories.UserRepository;
 
+@Service
 public class UserService {
 
 	@Autowired
@@ -45,7 +47,6 @@ public class UserService {
 
 	public User saveNewUser(User user) {
 	  user.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
-	  user.setActive(1);
 	  Role userRole = roleRepository.findByRole("USER");
 	  user.setRoles(new HashSet<Role>(Arrays.asList(userRole)));
 	  return userRepository.save(user);
