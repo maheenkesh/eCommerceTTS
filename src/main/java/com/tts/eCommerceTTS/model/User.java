@@ -19,7 +19,9 @@ public class User {
 	private String lastName; 
 	private String emailAddress; 
 	private String address; 
+	private String password; 
 	private Date createdAt;
+	
 	public User() {
 		
 	}
@@ -62,6 +64,12 @@ public class User {
 		this.emailAddress = emailAddress;
 		this.address = address;
 		this.createdAt = createdAt;
+	}
+	public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
 	}  
 	
 	
