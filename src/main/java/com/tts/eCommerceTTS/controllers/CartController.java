@@ -1,12 +1,14 @@
 package com.tts.eCommerceTTS.controllers;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PatchMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.tts.eCommerceTTS.model.Cart;
 import com.tts.eCommerceTTS.model.Product;
 import com.tts.eCommerceTTS.services.ProductService;
 import com.tts.eCommerceTTS.services.UserService;
@@ -18,24 +20,23 @@ public class CartController {
 	private ProductService productService;
 	private UserService userService;
 	
-	@GetMapping("/cart")
-	public String showCart() {
+	@GetMapping("/storefront/cart")
+	public String showCart(Cart cart, Model model) {
+	  model.addAttribute("cart", cart);
 	  return "storefront/cart";
 	}
 	 
-	@PostMapping("/cart")
-	public String addToCart(@RequestParam long id) {
-	  Product product = productService.findById(id);
-	  setQuantity(product, cart().getOrDefault(product, 0) + 1);
+	@PostMapping("/storefront/cart")
+	public String addToCart(@RequestParam Long productId, Cart cart, @RequestParam Integer quantity, Model model) {
+	Cart cart = cartService.addLineItemToCart(cart, productId, quantity);
+	  model.addAttribute("cart", cart);
 	  return "storefront/cart";
 	}
 
-	@PatchMapping("/cart")
-	public String updateQuantities(@RequestParam Long[] productId, @RequestParam Integer[] quantity) {
-	  for(int i = 0; i < productId.length; i++) {
-	      Product product = productService.findById(productId[i]);
-	      setQuantity(product, quantity[i]);
-	  }
+	@PostMapping("/storefront/cart")
+	public String changeCartLineItemQuantity(@RequestParam Long productId, Cart cart, @RequestParam Integer quantity, Model model) {
+	  Cart cart = cartService.updateLineItemQuantity(cart, productId, quantity);
+	  model.addAttribute("cart", cart);
 	  return "storefront/cart";
 	}
 
