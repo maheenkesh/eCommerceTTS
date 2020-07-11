@@ -15,7 +15,6 @@ public class Cart {
 	private List<HashMap<Product, Integer>> lineItems;
 	private Double subTotal;
 	public Cart() {
-		// TODO Auto-generated constructor stub
 	}
 	public List<HashMap<Product, Integer>> getLineItems() {
 		return lineItems;
@@ -33,4 +32,7 @@ public class Cart {
 		this.lineItems = lineItems;
 		this.subTotal = subTotal;
 	}
+//	public void put(Product p, int quantity) {
+//		lineItems.add(index, HashMap<p, quantity>);
+//	}
 }

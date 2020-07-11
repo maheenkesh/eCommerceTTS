@@ -24,9 +24,9 @@ public class ProductController {
 	  return "storefront/product";
 	}
 
-	@RequestMapping(value = {"/products/new", "/products/{productId}/edit"}, method = {RequestMethod.POST, RequestMethod.PUT })
+	@RequestMapping(value = {"/products/new", "/admin/products/{productId}/edit"}, method = {RequestMethod.POST, RequestMethod.PUT })
 	public String createOrUpdate(@Valid Product product) {
 	  productService.save(product);
-	  return "redirect:/storefront/products/" + product.getId();
+	  return "redirect:/admin/products/" + product.getId();
 	}
 }

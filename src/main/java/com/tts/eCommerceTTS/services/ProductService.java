@@ -4,10 +4,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import com.tts.eCommerceTTS.model.Product;
 import com.tts.eCommerceTTS.repositories.ProductRepository;
 
+@Service
 public class ProductService {
 
 	@Autowired
