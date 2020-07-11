@@ -2,6 +2,7 @@ package com.tts.eCommerceTTS.model;
 
 import java.util.Date;
 import java.util.HashSet;
+import java.util.Map;
 import java.util.Set;
 
 import javax.persistence.CascadeType;
@@ -25,6 +26,13 @@ public class User {
 	private Long id; 
 	private String firstName; 
 	private String lastName; 
+	private String username;
+	public String getUsername() {
+		return username;
+	}
+	public void setUsername(String username) {
+		this.username = username;
+	}
 	private String emailAddress; 
 	private String address; 
 	private String password; 
@@ -90,6 +98,10 @@ public class User {
 	}
 	public void setRoles(Set<Role> roles) {
 		this.roles = roles;
+	}
+	public Map<Product, Integer> getCart() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 	
 }
